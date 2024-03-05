@@ -110,7 +110,7 @@
 }
 .wagtail-alerts .{{CSS_VARIABLE_PREFIX}}alert .alert-content .alert-text * {
     margin: 0;
-    display: block;
+    display: inline;
 }
 
 
@@ -139,7 +139,7 @@
 }
 .wagtail-alerts .{{CSS_VARIABLE_PREFIX}}toast .alert-text * {
     margin: 0;
-    display: block;
+    display: inline;
 }
 
 {% for style in styles %}
