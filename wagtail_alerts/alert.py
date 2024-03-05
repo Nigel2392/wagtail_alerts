@@ -102,6 +102,7 @@ class Alert(BaseAlert):
             }
         })
 
+        value.cookie_key = self.cookie_key
 
         context["self"] = value
         context[AlertBlock.TEMPLATE_VAR] = value

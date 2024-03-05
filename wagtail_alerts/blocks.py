@@ -127,6 +127,7 @@ class AlertBlockConfiguration(TemplateBlockConfiguration):
         icon = "warning"
 
 class AlertBlockValue(blocks.StructValue):
+    _cookie_key = None
     
     def get_title(self):
         return self.get("title")
@@ -139,10 +140,18 @@ class AlertBlockValue(blocks.StructValue):
     
     def once_per_session(self):
         return self.get("settings").get("once_per_session")
-    
-    @cached_property
+        
+    @property
     def cookie_key(self):
-        return f"{COOKIE_KEY_PREFIX}{self.get_alert_hash()}"
+        if self._cookie_key:
+            return self._cookie_key
+        
+        self._cookie_key = f"{COOKIE_KEY_PREFIX}{self.get_alert_hash()}"
+        return self._cookie_key
+
+    @cookie_key.setter
+    def cookie_key(self, value):
+        self._cookie_key = value
     
     def is_active(self):
         settings = self.get("settings")
