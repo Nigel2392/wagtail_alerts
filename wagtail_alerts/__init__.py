@@ -12,7 +12,7 @@ class WagtailAlertTheme:
         self.label = label
         self.set_color(text_color)
         self.set_theme(theme_color)
-
+        self.custom: list[str] = []
         self.colors = (
             ("text", "text_color"),
             ("rgb-text", "_text_color_rgb"),
@@ -28,6 +28,32 @@ class WagtailAlertTheme:
             ("b-theme", "_theme_color_b"),
             ("a-theme", "_theme_color_a"),
         )
+
+    def add_custom(self, css_format_str: str):
+        self.custom.append(css_format_str)
+
+    def get_custom(self):
+        l = []
+        for c in self.custom:
+            c = c.format(
+                prefix=self.css_variable_prefix,
+                name=self.css_variable_name,
+                label=self.label,
+                text_color=self.text_color,
+                theme_color=self.theme_color,
+                rgb_text=self._text_color_rgb,
+                r_text=self._text_color_r,
+                g_text=self._text_color_g,
+                b_text=self._text_color_b,
+                a_text=self._text_color_a,
+                rgb_theme=self._theme_color_rgb,
+                r_theme=self._theme_color_r,
+                g_theme=self._theme_color_g,
+                b_theme=self._theme_color_b,
+                a_theme=self._theme_color_a,
+            )
+            l.append(c)
+        return "\n".join(l)
 
     def set_color(self, color: str):
         self._text_color = color

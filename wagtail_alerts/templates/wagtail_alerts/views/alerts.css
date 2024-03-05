@@ -146,6 +146,7 @@
 .{{ style.css_variable }} { {% for name, attr in style.colors %}
     --{{ name }}-color: var(--{{ style.css_variable }}-{{ name }});{% endfor %}
 }
+{{ style.get_custom }}
 {% endfor %}
 {% endlocalize %}
 {% endautoescape %}
