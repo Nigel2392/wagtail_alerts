@@ -6,12 +6,13 @@ Simple wagtail alerts and toasts to programatically display or to create via set
 Quick start
 -----------
 
-1. Add 'wagtail_alerts' to your INSTALLED_APPS setting like this:
+1. Add 'wagtail_alerts' and it's dependency' to your INSTALLED_APPS setting like this:
 
    ```
    INSTALLED_APPS = [
    ...,
    'wagtail_alerts',
+       'globlocks',
    ]
    ```
 2. Run `py ./manage.py collectstatic`
