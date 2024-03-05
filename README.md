@@ -15,7 +15,9 @@ Quick start
    ]
    ```
 2. Run `py ./manage.py collectstatic`
-3. Add the template tags and scripts to your ``<body>``
+3. Run `py ./manage.py makemigrations` (We did not do this to prevent the wagtail 5/6 migration errors which might occur.)
+4. Run `py ./manage.py migrate`
+5. Add the template tags and scripts to your ``<body>``
 
    ```
    {% load wagtail_alerts_tags %}
