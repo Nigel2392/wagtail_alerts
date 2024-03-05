@@ -13,6 +13,7 @@ class AlertSettings(BaseSiteSetting):
         [
             ("alert", AlertBlock()),
         ],
+        use_json_field=True,
         blank=True,
         null=True,
     )
