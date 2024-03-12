@@ -140,7 +140,7 @@ class AlertBlockValue(blocks.StructValue):
     
     def once_per_session(self):
         return self.get("settings").get("once_per_session")
-        
+    
     @property
     def cookie_key(self):
         if self._cookie_key:
@@ -200,6 +200,7 @@ class AlertBlock(TemplateBlock):
         group = _("Alerts")
         template = "wagtail_alerts/blocks/alert.html"
         value_class = AlertBlockValue
+        label_format=_("Alert: {body}")
 
     def get_context(self, value, parent_context=None):
         return super().get_context(value, parent_context) | {

@@ -7,9 +7,7 @@
                 {{ self.title }}:
             </div>
         {% endif %}
-        <div class="alert-text">
-            {{ self.body|richtext }}
-        </div>
+        <div class="alert-text">{{ self.body|richtext }}</div>
     </div>
     
     {% if self.settings.dismissible %}
